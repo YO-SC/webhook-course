@@ -1,4 +1,3 @@
-require('dotenv').config();
 const axios = require("axios").default;
 
 // Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method

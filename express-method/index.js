@@ -20,9 +20,10 @@ app.get('/', (req, res) =>
 );
 
 app.post('/github', (req, res) => {
-  const content = ':wave: Hi mom!';
-  const avatarUrl =
-    'https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif';
+  const username = req.body.sender.login;
+  const repoName = req.body.repository.name;
+  const content = `${username} just starred ${repoName} \n also I am hackerman :computer::tada::tada:`;
+  const avatarUrl = req.body.sender.avatar_url;
   axios
     .post(process.env.DISCORD_WEBHOOK_URL, {
       content: content,
